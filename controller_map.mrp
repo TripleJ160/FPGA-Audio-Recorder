@@ -1,0 +1,626 @@
+Release 14.7 Map P.20131013 (lin64)
+Xilinx Mapping Report File for Design 'controller'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc6slx45-csg484-3 -w -logic_opt off -ol
+high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off
+-pr off -lc off -power off -o controller_map.ncd controller.ngd controller.pcf 
+Target Device  : xc6slx45
+Target Package : csg484
+Target Speed   : -3
+Mapper Version : spartan6 -- $Revision: 1.55 $
+Mapped Date    : Wed Apr 24 16:22:40 2024
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:    5
+Slice Logic Utilization:
+  Number of Slice Registers:                   784 out of  54,576    1%
+    Number used as Flip Flops:                 784
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                      1,188 out of  27,288    4%
+    Number used as logic:                    1,139 out of  27,288    4%
+      Number using O6 output only:             660
+      Number using O5 output only:              84
+      Number using O5 and O6:                  395
+      Number used as ROM:                        0
+    Number used as Memory:                      32 out of   6,408    1%
+      Number used as Dual Port RAM:              8
+        Number using O6 output only:             0
+        Number using O5 output only:             0
+        Number using O5 and O6:                  8
+      Number used as Single Port RAM:           16
+        Number using O6 output only:             8
+        Number using O5 output only:             0
+        Number using O5 and O6:                  8
+      Number used as Shift Register:             8
+        Number using O6 output only:             0
+        Number using O5 output only:             0
+        Number using O5 and O6:                  8
+    Number used exclusively as route-thrus:     17
+      Number with same-slice register load:     11
+      Number with same-slice carry load:         6
+      Number with other load:                    0
+
+Slice Logic Distribution:
+  Number of occupied Slices:                   408 out of   6,822    5%
+  Number of MUXCYs used:                       284 out of  13,644    2%
+  Number of LUT Flip Flop pairs used:        1,258
+    Number with an unused Flip Flop:           598 out of   1,258   47%
+    Number with an unused LUT:                  70 out of   1,258    5%
+    Number of fully used LUT-FF pairs:         590 out of   1,258   46%
+    Number of unique control sets:              87
+    Number of slice register sites lost
+      to control set restrictions:             304 out of  54,576    1%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        73 out of     320   22%
+    Number of LOCed IOBs:                       71 out of      73   97%
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                         4 out of     116    3%
+  Number of RAMB8BWERs:                          0 out of     232    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 1 out of      32    3%
+    Number used as BUFIO2s:                      1
+    Number used as BUFIO2_2CLKs:                 0
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
+  Number of BUFG/BUFGMUXs:                       7 out of      16   43%
+    Number used as BUFGs:                        6
+    Number used as BUFGMUX:                      1
+  Number of DCM/DCM_CLKGENs:                     0 out of       8    0%
+  Number of ILOGIC2/ISERDES2s:                   0 out of     376    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:        24 out of     376    6%
+    Number used as IODELAY2s:                    0
+    Number used as IODRP2s:                      2
+    Number used as IODRP2_MCBs:                 22
+  Number of OLOGIC2/OSERDES2s:                  45 out of     376   11%
+    Number used as OLOGIC2s:                     0
+    Number used as OSERDES2s:                   45
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     256    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         1 out of       4   25%
+  Number of DSP48A1s:                            0 out of      58    0%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                1 out of       2   50%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            2 out of       4   50%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+Average Fanout of Non-Clock Nets:                3.66
+
+Peak Memory Usage:  886 MB
+Total REAL time to MAP completion:  24 secs 
+Total CPU time to MAP completion:   21 secs 
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:Pack:1653 - At least one timing constraint is impossible to meet because component delays alone exceed the constraint. A timing
+   constraint summary below shows the failing constraints (preceded with an Asterisk (*)). Please use the Timing Analyzer (GUI) or TRCE
+   (command line) with the Mapped NCD and PCF files to identify which constraints and paths are failing because of the component delays
+   alone. If the failing path(s) is mapped to Xilinx components as expected, consider relaxing the constraint. If it is not mapped to
+   components as expected, re-evaluate your HDL and how synthesis is optimizing the path. To allow the tools to bypass this error, set the
+   environment variable XIL_TIMING_ALLOW_IMPOSSIBLE to 1.
+
+
+   For more information about the Timing Analyzer, consult the Xilinx Timing Analyzer Reference manual; for more information on TRCE,
+   consult the Xilinx Command Line Tools User Guide "TRACE" chapter.
+WARNING:Place:1206 - This design contains a global buffer instance,
+   <myclock/clkout4_buf>, driving the net, <clk11>, that is driving the
+   following (first 30) non-clock load pins off chip.
+   < PIN: AUD_XCK.O; >
+   This design practice, in Spartan-6, can lead to an unroutable situation due
+   to limitations in the global routing. If the design does route there may be
+   excessive delay or skew on this net. It is recommended to use a Clock
+   Forwarding technique to create a reliable and repeatable low skew solution:
+   instantiate an ODDR2 component; tie the .D0 pin to Logic1; tie the .D1 pin to
+   Logic0; tie the clock net to be forwarded to .C0; tie the inverted clock to
+   .C1. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint was
+   applied on COMP.PIN <myclock/clkout4_buf.O> allowing your design to continue.
+   This constraint disables all clock placer rules related to the specified
+   COMP.PIN.
+WARNING:Place:1137 - This design is not guaranteed to be routable! This design
+   contains a global buffer instance,
+   <RAMRapper/u_memory_interface/memc3_infrastructure_inst/U_BUFG_CLK0>, driving
+   the net, <clk37>, that is driving the following (first 30) non-clock load
+   pins.
+   < PIN: myclock/clkin1_buf.I0; >
+   This is not a recommended design practice in Spartan-6 due to limitations in
+   the global routing that may cause excessive delay, skew or unroutable
+   situations.  It is recommended to only use a BUFG resource to drive clock
+   loads. Please pay extra attention to the timing and routing of this path to
+   ensure the design goals are met. This is normally an ERROR but the
+   CLOCK_DEDICATED_ROUTE constraint was applied on COMP.PIN
+   <RAMRapper/u_memory_interface/memc3_infrastructure_inst/U_BUFG_CLK0.O>
+   allowing your design to continue. This constraint disables all clock placer
+   rules related to the specified COMP.PIN.
+WARNING:Place:1137 - This design is not guaranteed to be routable! This design
+   contains a global buffer instance, <myclock/clkout4_buf>, driving the net,
+   <clk11>, that is driving the following (first 30) non-clock load pins.
+   < PIN: AUD_XCK.O; >
+   This is not a recommended design practice in Spartan-6 due to limitations in
+   the global routing that may cause excessive delay, skew or unroutable
+   situations.  It is recommended to only use a BUFG resource to drive clock
+   loads. Please pay extra attention to the timing and routing of this path to
+   ensure the design goals are met. This is normally an ERROR but the
+   CLOCK_DEDICATED_ROUTE constraint was applied on COMP.PIN
+   <myclock/clkout4_buf.O> allowing your design to continue. This constraint
+   disables all clock placer rules related to the specified COMP.PIN.
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   AUD_I2C_SCLK_PULLUP is set but the tri state is not configured. 
+
+Section 3 - Informational
+-------------------------
+INFO:LIT:243 - Logical network
+   RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<24> has no
+   load.
+INFO:LIT:395 - The above info message is repeated 4 more times for the following
+   (max. 5 shown):
+   N228,
+   N230,
+   switches<3>_IBUF,
+   switches<2>_IBUF
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
+   1.260 Volts)
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+INFO:Place:834 - Only a subset of IOs are locked. Out of 73 IOs, 71 are locked
+   and 2 are not locked. If you would like to print the names of these IOs,
+   please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
+INFO:Pack:1650 - Map created a placed design.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+  28 block(s) removed
+   5 block(s) optimized away
+  28 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<24>" is
+loadless and has been removed.
+ Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_24" (FF)
+removed.
+  The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<23>" is
+loadless and has been removed.
+   Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_23" (FF)
+removed.
+    The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<22>" is
+loadless and has been removed.
+     Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_22" (FF)
+removed.
+      The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<21>" is
+loadless and has been removed.
+       Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_21" (FF)
+removed.
+        The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<20>" is
+loadless and has been removed.
+         Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_20" (FF)
+removed.
+          The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<19>" is
+loadless and has been removed.
+           Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_19" (FF)
+removed.
+            The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<18>" is
+loadless and has been removed.
+             Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_18" (FF)
+removed.
+              The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<17>" is
+loadless and has been removed.
+               Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_17" (FF)
+removed.
+                The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<16>" is
+loadless and has been removed.
+                 Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_16" (FF)
+removed.
+                  The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<15>" is
+loadless and has been removed.
+                   Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_15" (FF)
+removed.
+                    The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<14>" is
+loadless and has been removed.
+                     Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_14" (FF)
+removed.
+                      The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<13>" is
+loadless and has been removed.
+                       Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_13" (FF)
+removed.
+                        The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<12>" is
+loadless and has been removed.
+                         Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_12" (FF)
+removed.
+                          The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<11>" is
+loadless and has been removed.
+                           Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_11" (FF)
+removed.
+                            The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<10>" is
+loadless and has been removed.
+                             Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_10" (FF)
+removed.
+                              The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<9>" is
+loadless and has been removed.
+                               Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_9" (FF)
+removed.
+                                The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<8>" is
+loadless and has been removed.
+                                 Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_8" (FF)
+removed.
+                                  The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<7>" is
+loadless and has been removed.
+                                   Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_7" (FF)
+removed.
+                                    The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<6>" is
+loadless and has been removed.
+                                     Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_6" (FF)
+removed.
+                                      The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<5>" is
+loadless and has been removed.
+                                       Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_5" (FF)
+removed.
+                                        The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<4>" is
+loadless and has been removed.
+                                         Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_4" (FF)
+removed.
+                                          The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<3>" is
+loadless and has been removed.
+                                           Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_3" (FF)
+removed.
+                                            The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<2>" is
+loadless and has been removed.
+                                             Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_2" (FF)
+removed.
+                                              The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<1>" is
+loadless and has been removed.
+                                               Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_1" (FF)
+removed.
+                                                The signal
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r<0>" is
+loadless and has been removed.
+                                                 Loadless block
+"RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sync_r_0" (FF)
+removed.
+Loadless block "myclock/clkout2_buf" (CKBUF) removed.
+ The signal "myclock/clkout1" is loadless and has been removed.
+Loadless block "pblaze/pblaze_cpu/interrupt_ack_flop" (FF) removed.
+Loadless block "pblaze/pblaze_cpu/k_write_strobe_flop" (SFF) removed.
+ The signal "pblaze/pblaze_cpu/k_write_strobe_value" is loadless and has been
+removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "pblaze/pblaze_cpu/active_interrupt_value" is unused and has been
+removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+VCC 		XST_VCC
+FD 		pblaze/pblaze_cpu/sync_interrupt_flop
+   optimized to 0
+FD 		pblaze/pblaze_cpu/sync_sleep_flop
+   optimized to 0
+FD 		pblaze/pblaze_cpu/active_interrupt_flop
+   optimized to 0
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 11 - Timing Report
+--------------------------
+INFO:Timing:3284 - This timing report was generated using estimated delay 
+   information.  For accurate numbers, please refer to the post Place and Route 
+   timing report.
+Number of Timing Constraints that were not applied: 3
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+* TS_myclock_clkout3 = PERIOD TIMEGRP "mycl | SETUP       |    -1.941ns| 171542.688ns|     146|      207847
+  ock_clkout3" TS_RAMRapper_u_memory_interf | HOLD        |     0.216ns|            |       0|           0
+  ace_memc3_infrastructure_inst_clk0_bufg_i |             |            |            |        |            
+  n * 0.301886792 HIGH 50%                  |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+* TS_RAMRapper_u_memory_interface_memc3_inf | SETUP       |    -1.288ns|    47.306ns|      66|       58869
+  rastructure_inst_clk0_bufg_in = PERIOD TI | HOLD        |     0.227ns|            |       0|           0
+  MEGRP "RAMRapper_u_memory_interface_memc3 |             |            |            |        |            
+  _infrastructure_inst_clk0_bufg_in" TS_sys |             |            |            |        |            
+  _clk_pin * 0.375 HIGH 50%                 |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+* TS_myclock_clkout0 = PERIOD TIMEGRP "mycl | SETUP       |     2.007ns|     4.126ns|       0|           0
+  ock_clkout0" TS_RAMRapper_u_memory_interf | HOLD        |    -0.095ns|            |      32|        3008
+  ace_memc3_infrastructure_inst_clk0_bufg_i |             |            |            |        |            
+  n * 2.66666667 HIGH 50%                   |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_RAMRapper_u_memory_interface_memc3_inf | MINPERIOD   |     0.167ns|     1.499ns|       0|           0
+  rastructure_inst_clk_2x_180 = PERIOD TIME |             |            |            |        |            
+  GRP "RAMRapper_u_memory_interface_memc3_i |             |            |            |        |            
+  nfrastructure_inst_clk_2x_180" TS_sys_clk |             |            |            |        |            
+  _pin * 6 PHASE 0.833333333 ns HIGH 50%    |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_RAMRapper_u_memory_interface_memc3_inf | MINPERIOD   |     0.167ns|     1.499ns|       0|           0
+  rastructure_inst_clk_2x_0 = PERIOD TIMEGR |             |            |            |        |            
+  P "RAMRapper_u_memory_interface_memc3_inf |             |            |            |        |            
+  rastructure_inst_clk_2x_0" TS_sys_clk_pin |             |            |            |        |            
+   * 6 HIGH 50%                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_ | MINLOWPULSE |     6.666ns|     3.334ns|       0|           0
+  pin" 100 MHz HIGH 50%                     |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_RAMRapper_u_memory_interface_memc3_inf | SETUP       |    10.747ns|     2.586ns|       0|           0
+  rastructure_inst_mcb_drp_clk_bufg_in = PE | HOLD        |     0.060ns|            |       0|           0
+  RIOD TIMEGRP "RAMRapper_u_memory_interfac |             |            |            |        |            
+  e_memc3_infrastructure_inst_mcb_drp_clk_b |             |            |            |        |            
+  ufg_in" TS_sys_clk_pin * 0.75 HIGH 50%    |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_myclock_clkout2 = PERIOD TIMEGRP "mycl | SETUP       |    18.188ns|     1.812ns|       0|           0
+  ock_clkout2" TS_RAMRapper_u_memory_interf | HOLD        |     0.060ns|            |       0|           0
+  ace_memc3_infrastructure_inst_clk0_bufg_i |             |            |            |        |            
+  n * 1.33333333 HIGH 50%                   |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Review Timing Report for more details on the following derived constraints.
+To create a Timing Report, run "trce -v 12 -fastpaths -o design_timing_report design.ncd design.pcf"
+or "Run Timing Analysis" from Timing Analyzer (timingan).
+Derived Constraints for TS_sys_clk_pin
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_sys_clk_pin                 |     10.000ns|      3.334ns|  19419.927ns|            0|          244|            0|        77685|
+| TS_RAMRapper_u_memory_interfac|     13.333ns|      2.586ns|          N/A|            0|            0|        24065|            0|
+| e_memc3_infrastructure_inst_mc|             |             |             |             |             |             |             |
+| b_drp_clk_bufg_in             |             |             |             |             |             |             |             |
+| TS_RAMRapper_u_memory_interfac|      1.667ns|      1.499ns|          N/A|            0|            0|            0|            0|
+| e_memc3_infrastructure_inst_cl|             |             |             |             |             |             |             |
+| k_2x_180                      |             |             |             |             |             |             |             |
+| TS_RAMRapper_u_memory_interfac|      1.667ns|      1.499ns|          N/A|            0|            0|            0|            0|
+| e_memc3_infrastructure_inst_cl|             |             |             |             |             |             |             |
+| k_2x_0                        |             |             |             |             |             |             |             |
+| TS_RAMRapper_u_memory_interfac|     26.667ns|     47.306ns|  51786.472ns|           66|          178|        17827|        35793|
+| e_memc3_infrastructure_inst_cl|             |             |             |             |             |             |             |
+| k0_bufg_in                    |             |             |             |             |             |             |             |
+|  TS_myclock_clkout3           |     88.333ns| 171542.688ns|          N/A|          146|            0|         4488|            0|
+|  TS_myclock_clkout0           |     10.000ns|      4.126ns|          N/A|           32|            0|        30822|            0|
+|  TS_myclock_clkout2           |     20.000ns|      1.812ns|          N/A|            0|            0|          483|            0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+3 constraints not met.
+
+
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| AUD_ADCDAT                         | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| AUD_ADCLRCK                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| AUD_BCLK                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| AUD_DACDAT                         | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| AUD_DACLRCK                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| AUD_I2C_SCLK                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              | PULLUP   |          |
+| AUD_I2C_SDAT                       | IOB              | BIDIR     | LVCMOS33             |       | 12       | SLOW |              | PULLUP   |          |
+| AUD_MUTE                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| AUD_XCK                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| LEDRAM                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| STATLED3                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| STATLED4                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| clk                                | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| down                               | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| highLED                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| hw_ram_ad<0>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| hw_ram_ad<1>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| hw_ram_ad<2>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| hw_ram_ad<3>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| hw_ram_ad<4>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| hw_ram_ad<5>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| hw_ram_ad<6>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| hw_ram_ad<7>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| hw_ram_ad<8>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| hw_ram_ad<9>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| hw_ram_ad<10>                      | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| hw_ram_ad<11>                      | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| hw_ram_ad<12>                      | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| hw_ram_ba<0>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| hw_ram_ba<1>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| hw_ram_ba<2>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| hw_ram_casn                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OSERDES      |          |          |
+| hw_ram_ck                          | IOB              | OUTPUT    | DIFF_SSTL2_II        |       |          |      | OSERDES      |          |          |
+| hw_ram_cke                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OSERDES      |          |          |
+| hw_ram_ckn                         | IOB              | OUTPUT    | DIFF_SSTL2_II        |       |          |      | OSERDES      |          |          |
+| hw_ram_dq<0>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| hw_ram_dq<1>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| hw_ram_dq<2>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| hw_ram_dq<3>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| hw_ram_dq<4>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| hw_ram_dq<5>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| hw_ram_dq<6>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| hw_ram_dq<7>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| hw_ram_dq<8>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| hw_ram_dq<9>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| hw_ram_dq<10>                      | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| hw_ram_dq<11>                      | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| hw_ram_dq<12>                      | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| hw_ram_dq<13>                      | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| hw_ram_dq<14>                      | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| hw_ram_dq<15>                      | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| hw_ram_ldm                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| hw_ram_ldqs_n                      | IOB              | BIDIR     | DIFF_SSTL2_II        |       |          |      |              | PULLUP   |          |
+| hw_ram_ldqs_p                      | IOB              | BIDIR     | DIFF_SSTL2_II        |       |          |      |              | PULLDOWN |          |
+| hw_ram_odt                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OSERDES      |          |          |
+| hw_ram_rasn                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OSERDES      |          |          |
+| hw_ram_udm                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| hw_ram_udqs_n                      | IOB              | BIDIR     | DIFF_SSTL2_II        |       |          |      |              | PULLUP   |          |
+| hw_ram_udqs_p                      | IOB              | BIDIR     | DIFF_SSTL2_II        |       |          |      |              | PULLDOWN |          |
+| hw_ram_wen                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OSERDES      |          |          |
+| hw_rzq_pin                         | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          | DEFAULT  |
+| hw_zio_pin                         | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          | DEFAULT  |
+| lowLED                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| medLED                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| reset                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| rs232_rx                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| rs232_tx                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| sel                                | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| switches<0>                        | IOB              | INPUT     | LVCMOS18             |       |          |      |              |          |          |
+| switches<1>                        | IOB              | INPUT     | LVCMOS18             |       |          |      |              |          |          |
+| switches<2>                        | IOB              | INPUT     | LVCMOS18             |       |          |      |              |          |          |
+| switches<3>                        | IOB              | INPUT     | LVCMOS18             |       |          |      |              |          |          |
+| up                                 | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+Use the "-detail" map option to print out Control Set Information.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.
