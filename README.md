@@ -31,9 +31,9 @@ Flash the bitstream onto the FPGA board using the provided files.
 A video demonstration of the project can be found here: https://youtu.be/Eu4xqRAyRH4
 
 # Team Members
-Johan John Joji
-Lazar Lazarevich
-Brendan Berlin
+- Johan John Joji
+- Lazar Lazarevic
+- Brendan Berlin
 
 License
 This project is licensed under the MIT License.
