@@ -7,11 +7,11 @@ The goal of this project was to design and prototype an audio recorder/player sy
 # Features Implemented
 On start-up, the system displays a welcome message and a menu of options including:
 
-= Play a message
-= Record a message
-= Delete a message
-= Delete all messages
-= Volume control
+- Play a message
+- Record a message
+- Delete a message
+- Delete all messages
+- Volume control
 
 During playback, the user can pause/resume the message.
 The recorder can record/store messages in 5 different slots.
