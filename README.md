@@ -6,11 +6,12 @@ The goal of this project was to design and prototype an audio recorder/player sy
 
 # Features Implemented
 On start-up, the system displays a welcome message and a menu of options including:
-Play a message
-Record a message
-Delete a message
-Delete all messages
-Volume control
+
+= Play a message
+= Record a message
+= Delete a message
+= Delete all messages
+= Volume control
 
 During playback, the user can pause/resume the message.
 The recorder can record/store messages in 5 different slots.
@@ -22,9 +23,9 @@ Connect the FPGA board according to the provided specifications.
 Flash the bitstream onto the FPGA board using the provided files.
 
 # Instructions
-Connect board to PC to access a serial interface through PUTTY (Set COM ID correctly)
-Uses buttons on the FPGA board for navigation. Requires Switch 6 for audio codec to be switched on before recording/testing.
-Use the buttons to navigate the menu on the serial interface for all operations.
+- Connect board to PC to access a serial interface through PUTTY (Set COM ID correctly)
+- Uses buttons on the FPGA board for navigation. Requires Switch 6 for audio codec to be switched on before recording/testing.
+- Use the buttons to navigate the menu on the serial interface for all operations.
 
 # Demo
 A video demonstration of the project can be found here.
