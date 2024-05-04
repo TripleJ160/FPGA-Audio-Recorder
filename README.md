@@ -23,6 +23,7 @@ Connect the FPGA board according to the provided specifications.
 Flash the bitstream onto the FPGA board using the provided files.
 
 # Instructions
+- If you import the project for any modifications, import the .xco file for the memory interface from ipcore directory or the .xco in the demo memory files.
 - Connect board to PC to access a serial interface through PUTTY (Set COM ID correctly)
 - Uses buttons on the FPGA board for navigation. Requires Switch 6 for audio codec to be switched on before recording/testing.
 - Use the buttons to navigate the menu on the serial interface for all operations.
