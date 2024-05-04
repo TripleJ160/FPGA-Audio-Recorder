@@ -28,8 +28,7 @@ Flash the bitstream onto the FPGA board using the provided files.
 - Use the buttons to navigate the menu on the serial interface for all operations.
 
 # Demo
-A video demonstration of the project can be found here.
-https://youtu.be/Eu4xqRAyRH4
+A video demonstration of the project can be found here: https://youtu.be/Eu4xqRAyRH4
 
 # Team Members
 Johan John Joji
